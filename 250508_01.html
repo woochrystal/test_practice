@@ -22,23 +22,42 @@
         X, Y는 0으로 시작하지 않습니다.
         X, Y의 짝꿍은 상당히 큰 정수일 수 있으므로, 문자열로 반환합니다.*/
         
-        const X = 100;
-        const Y = 2345;
-        function solution(X, Y) {
-            let x_num = [...X.toString()]
-                        .map(Number)
-                        .sort((a,b) => b - a);
-            let y_num = [...Y.toString()]
-                        .map(Number)
-                        .sort((a,b) => b - a);
-            for (const A of x_num) {
-                console.log('A',A)
-                for (const B of y_num) {
-                    if(A == B){
+        var X = 100;
+        var Y = 203045;
 
-                    }
-                }
+        function solution(X, Y) {
+            
+            var small = X;
+            var big = Y;
+            let arr = [];
+
+            if(X > Y){
+                X = big;
+                Y = small;
+            }else if(Y > X){
+                Y = big;
+                X =  small;
             }
+            // console.log(big)
+
+            let s_num = [...small.toString()]
+                        .map(Number)
+                        .sort((a,b) => b - a);
+            let b_num = [...big.toString()]
+                    .map(Number)
+                    .sort((a,b) => b - a);
+                    console.log(b_num[0])
+            for (const i in s_num) {
+                for (const B of b_num) {
+                    var s;
+                    if(s_num[i] = B){
+                        arr[i] = B
+                    }
+                    console.log(arr)
+                }
+                arr[i]++
+            }
+            // console.log(s_num)
             
             var answer = '';
             return answer;
