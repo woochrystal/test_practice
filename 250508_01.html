@@ -49,7 +49,8 @@
             let s_num = [...small.toString()]
                         .map(Number)
                         .sort((a,b) => b - a);
-            // console.log(s_num) //작은수
+            console.log(s_num) //작은수
+            // console.log(s_num.indexOf(0)) //작은수
 
             let b_num = [...big.toString()]
                     .map(Number)
@@ -59,13 +60,9 @@
             //큰 숫자부터 정렬, 한자리씩 문자열
 
             for (const i in s_num) {//작은수 자리 총 몇자리
+                // console.log(s_num[i])
+                // console.log(i)
                 for (const B of b_num) {//큰 수 하나씩
-                    if(s_num[i] = B){
-                        arr[i] = B
-                        // arr[i]++
-                    }
-                    // console.log(arr)
-                    console.log(B)
                 }
             }
             // console.log(s_num)
