@@ -46,22 +46,70 @@
                 Math.ceil() : 소수점 올림, 정수 반환
                 Math.floor() : 소수점 버림, 정수 반환
                 Math.round() : 소수점 반올림, 정수 반환
+                toExponential() : 원하는 소수점 이하부터 지수표기법으로 반환
+                홀수 - 2 3 4 5...
+                짝수 - ...5 4 3 2
             */
             
             // w가 몇개인지
             // console.log(22/6)
-            var all_fl = Math.ceil(n/w);
-            var this_fl = Math.ceil(num/w);
-            console.log(n/num, ',',num);
-            var answer = (all_fl - this_fl) + 1;
-            if(n/num){
-                
+            var all = n/w;
+            var select = num/w;
+
+            var all_fl = Math.ceil(all);//총 몇층
+            var this_fl = Math.ceil(select);//선택박스 층
+            var answer;
+
+            // var all_fn = (Number(all.toFixed(2))*10)%10;//끝
+            function truncFunc(i){
+                return Math.trunc(i * 10)%10
+            }
+            var all_fn = truncFunc(all);//끝
+            var this_fn = truncFunc(select);//선택 위치
+
+            if(all_fn == 0){
+                all_fn = 10;
+            }if(this_fn == 0){
+                this_fn = 10;
+            }
+
+            console.log(all_fl, this_fl, all_fn, this_fn, all_fl % 2,this_fl % 2, num)
+            console.log(all_fn > this_fn)
+
+            if(all_fl % 2 == 0){//총 층 짝수일 경우
+                if(this_fl % 2 == 0){//해당 층 수
+                    if(all_fn > this_fn){
+                        console.log('짝 + 짝 위에있음')
+                        answer = (all_fl - this_fl) + 1;
+                    }else{
+                        console.log('짝 + 짝 위에없음')
+                        answer = all_fl - this_fl;
+                    }
+                }else{//짝수
+                    if(all_fn < this_fn){
+                        console.log('짝 + 홀 위에있음')
+                        answer = (all_fl - this_fl) + 1;
+                    }else{
+                        console.log('짝 + 홀 위에없음')
+                        answer = all_fl - this_fl;
+                    }
+                }
+            }else{
+                answer = (all_fl - this_fl) + 1
             }
             return answer;
         }
-        console.log(solution(19, 6,	10),': 10')
-        console.log(solution(19, 6,	9),': 9')
-        console.log(solution(19, 6,	8),': 8')
+        // console.log(solution(22, 6,	10))//짝this
+        // console.log(solution(22, 6,	11))//짝this
+        // console.log(solution(22, 6,	6))//짝this
+        // console.log(solution(22, 6,	5))
+        // console.log(solution(22, 6,	4))
+        // console.log(solution(22, 6,	3))//짝this
+        // console.log(solution(21, 6,	3),'없음')//짝this
+        // console.log(solution(20, 6,	3),'없음')//짝this
+        console.log(solution(22, 6,	3))//짝this
+        console.log(solution(22, 6,	2),'없음')
+        console.log(solution(22, 6,	1),'없음')
         // console.log(solution(13, 3, 1),': 4 정답')
         // console.log(solution(22, 6,	8),': 3 정답')
         // console.log(solution(13, 3, 6),': 4 정답')
