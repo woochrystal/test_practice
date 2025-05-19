@@ -62,7 +62,7 @@
 
             // var all_fn = (Number(all.toFixed(2))*10)%10;//끝
             function truncFunc(i){
-                return Math.trunc(i * 10)%10
+                return Math.floor(i * 10)%10
             }
             var all_fn = truncFunc(all);//끝
             var this_fn = truncFunc(select);//선택 위치
@@ -73,8 +73,10 @@
                 this_fn = 10;
             }
 
-            console.log(all_fl, this_fl, all_fn, this_fn, all_fl % 2,this_fl % 2, num)
-            console.log(all_fn > this_fn)
+            // console.log(all_fl, this_fl, all_fn, this_fn, all_fl % 2,this_fl % 2, num)
+            // console.log(all_fn > this_fn)
+            console.log(all)
+            console.log(select)
 
             if(all_fl % 2 == 0){//총 층 짝수일 경우
                 if(this_fl % 2 == 0){//해당 층 수
@@ -107,9 +109,9 @@
         // console.log(solution(22, 6,	3))//짝this
         // console.log(solution(21, 6,	3),'없음')//짝this
         // console.log(solution(20, 6,	3),'없음')//짝this
-        console.log(solution(22, 6,	3))//짝this
-        console.log(solution(22, 6,	2),'없음')
-        console.log(solution(22, 6,	1),'없음')
+        console.log(solution(22, 6,	3),'있음')//짝this
+        // console.log(solution(22, 6,	2),'없음')
+        // console.log(solution(22, 6,	1),'없음')
         // console.log(solution(13, 3, 1),': 4 정답')
         // console.log(solution(22, 6,	8),': 3 정답')
         // console.log(solution(13, 3, 6),': 4 정답')
