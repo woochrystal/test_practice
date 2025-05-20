@@ -76,7 +76,7 @@
 
             var answer = all_fl - this_fl;
 
-            if(all_fl % 2){//총 홀수일때
+            if(all_fl % 2 == 1){//총 홀수일때
                 if(this_fl % 2 == 1){//해당 층 수 홀수
                     if(all_fn <= this_fn){
                         console.log('홀 + 홀 위에있음')
@@ -110,6 +110,10 @@
                     }
                 }
             }
+            if(all_fn == this_fn){
+                console.log('같은층에 있음')
+                answer = (all_fl - this_fl) + 1;
+            }
             return answer;
         }
         console.log(solution(15, 6,	3),'홀 + 홀 위에있음');//3
@@ -120,6 +124,9 @@
         console.log(solution(19, 6,	3),'짝 + 홀 위에없음');//3
         console.log(solution(22, 6,	10),'짝 + 짝 위에있음');//3
         console.log(solution(19, 6,	10),'짝 + 짝 위에없음');//2
+        console.log(solution(19, 6,	19),'짝 + 짝 위에없음 + 같음');//2
+        console.log(solution(18, 6,	18),'홀 + 홀 위에없음 + 같음');//2
+        console.log(solution(10,5,10),'다같음');//2
     </script>
     
 </body>
