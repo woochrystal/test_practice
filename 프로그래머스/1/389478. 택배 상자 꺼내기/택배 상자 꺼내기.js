@@ -1,12 +1,4 @@
 function solution(n, w, num) {
-            /*
-                Math.ceil() : 소수점 올림, 정수 반환
-                Math.floor() : 소수점 버림, 정수 반환
-                Math.round() : 소수점 반올림, 정수 반환
-                toExponential() : 원하는 소수점 이하부터 지수표기법으로 반환
-                홀수 - 2 3 4 5...
-                짝수 - ...5 4 3 2
-            */
             
             // w가 몇개인지
             // console.log(22/6)
