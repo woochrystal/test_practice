@@ -54,28 +54,28 @@
     </ul>
     <script>
         function solution(schedules, timelogs, startday) {
-            var answer = 0;
-            var num = 0;
-            var st_num = startday - 1;//요일의 실제 순서 0 > 1 월요일(1)은 첫번째(0)
-            var s_length = schedules.length;
-            var emp = [];
-            for (var mem = 0; mem < s_length; mem++) {//직원수만큼 포문 돌리기
-                var limit = schedules[mem] + 10;
-                for(var i = st_num; i<(st_num+7); i++){//요일12
-                    num = i;
-                    if(num === 5 || num === 6) continue;
-                    if(i >= 7){
-                        num = num - 7;
+            var answer;
+            var count = 0;//출근시각 배열 순서
+            for (const i in schedules) {
+                // console.log(timelogs[i].length + startday)
+                for (var day = startday; day < startday + 7; day++) {
+                    // console.log(count, 'count')
+                    //시작시간에서 7 지나면 1로 가게 반복문 돌리기 //day%7 사용
+                    // console.log(day%7)
+                    // console.log(timelogs[i][count])
+                    
+                    if(day%7 == 6){ //일요일일떄 배열 삭제
+                        timelogs[i].splice(count, 0)
+                        console.log(count,'count',day,'day%7')
                     }
-                    var timebox = timelogs[mem][num];
-                    var weeknd = 0;
-                    if(timebox>=limit){
-                        console.log(timebox)
-                    }
+                    count++;//배열 순서 0-6
                 }
+                count = 0;
             }
             return answer;
         }
+        
+
 
         console.log(
             solution(
